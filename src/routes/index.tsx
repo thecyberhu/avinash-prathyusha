@@ -1,26 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { LoadingScreen } from "@/components/wedding/LoadingScreen";
+import { Hero } from "@/components/wedding/Hero";
+import { SaveTheDate } from "@/components/wedding/SaveTheDate";
+import { Events } from "@/components/wedding/Events";
+import { Story } from "@/components/wedding/Story";
+import { Venue } from "@/components/wedding/Venue";
+import { Rsvp } from "@/components/wedding/Rsvp";
+import { Footer } from "@/components/wedding/Footer";
+import { Petals } from "@/components/wedding/Petals";
+import { MusicToggle } from "@/components/wedding/MusicToggle";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Sreekar & Ananya · A Royal Telugu Wedding" },
+      {
+        name: "description",
+        content:
+          "Join us in celebrating the sacred union of Sreekar & Ananya — August 25, 2026, Tirupati.",
+      },
+      { property: "og:title", content: "Sreekar & Ananya · A Royal Telugu Wedding" },
+      {
+        property: "og:description",
+        content: "Two hearts, one sacred journey blessed for eternity.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <main className="relative overflow-x-hidden">
+      <LoadingScreen open={loading} onOpen={() => setLoading(false)} />
+      {!loading && <Petals />}
+      <Hero />
+      <SaveTheDate />
+      <Events />
+      <Story />
+      <Venue />
+      <Rsvp />
+      <Footer />
+      <MusicToggle />
+    </main>
+  );
 }
