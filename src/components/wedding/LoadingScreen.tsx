@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import ganeshaRoyal from "@/assets/ganesha-royal.png";
+import rosesBg from "@/assets/roses-bg.jpg";
 
 export function LoadingScreen({
   open,
@@ -150,31 +152,33 @@ function InvitationCard({
 
 function GaneshaIcon() {
   return (
-    <svg viewBox="0 0 200 220" className="h-40 w-40 animate-glow sm:h-48 sm:w-48"
-         fill="#f5d9a8" style={{ filter: "drop-shadow(0 4px 20px rgba(245,217,168,0.4))" }}>
-      {/* Crown */}
-      <path d="M100 8 L96 22 L104 22 Z" />
-      <circle cx="100" cy="6" r="3" />
-      <path d="M82 22 Q100 30 118 22 L116 38 Q100 32 84 38 Z" />
-      {/* Head dome */}
-      <path d="M70 40 Q70 25 100 25 Q130 25 130 40 L130 70 Q130 80 120 82 L80 82 Q70 80 70 70 Z" />
-      {/* Ears */}
-      <path d="M60 55 Q40 55 38 78 Q40 95 58 92 Q66 88 66 75 Z" />
-      <path d="M140 55 Q160 55 162 78 Q160 95 142 92 Q134 88 134 75 Z" />
-      {/* Eye */}
-      <ellipse cx="118" cy="68" rx="3" ry="4" fill="#5a1228" />
-      {/* Trunk - curling */}
-      <path d="M100 82 Q95 110 88 130 Q82 150 95 162 Q112 170 125 158 Q132 148 124 138 Q116 132 110 142 Q108 152 118 152" 
-            fill="none" stroke="#f5d9a8" strokeWidth="14" strokeLinecap="round" />
-      {/* Tusk */}
-      <path d="M88 100 L78 120 L86 122 Z" />
-      {/* Decorative swirls under */}
-      <path d="M60 175 Q70 165 80 175 Q70 185 60 175 Z" opacity="0.85" />
-      <path d="M140 175 Q150 165 160 175 Q150 185 140 175 Z" opacity="0.85" />
-      <path d="M85 195 Q100 185 115 195 Q100 205 85 195 Z" opacity="0.85" />
-    </svg>
+    <img
+      src={ganeshaRoyal}
+      alt="Lord Ganesha"
+      className="h-48 w-48 animate-glow sm:h-56 sm:w-56 object-contain"
+      style={{ filter: "drop-shadow(0 6px 24px rgba(245,217,168,0.5))" }}
+    />
   );
 }
+
+function RosesBackdrop() {
+  return (
+    <>
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-70"
+        style={{ backgroundImage: `url(${rosesBg})` }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(90,18,40,0.35) 0%, rgba(26,3,9,0.85) 85%)",
+        }}
+      />
+    </>
+  );
+}
+
 
 function OrnateBorder() {
   return (
