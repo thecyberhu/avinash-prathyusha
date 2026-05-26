@@ -155,5 +155,22 @@
     0%, 100% { transform: rotate(-3deg); }
     50% { transform: rotate(3deg); }
   }
+
+  @keyframes run-x {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+  }
+  @keyframes run-x-rev {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-400%); }
+  }
+  @keyframes run-y {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+  }
+  @keyframes run-y-rev {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-400%); }
+  }
   .animate-sway { animation: sway 4s ease-in-out infinite; transform-origin: top center; }
 }
