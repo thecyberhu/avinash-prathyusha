@@ -29,6 +29,7 @@ export function LoadingScreen({
               "radial-gradient(ellipse at center, #5a1228 0%, #1a0309 100%)",
           }}
         >
+          <RosesBackdrop />
           <Particles />
 
           <div className="relative" style={{ perspective: "2200px" }}>
