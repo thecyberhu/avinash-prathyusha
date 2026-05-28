@@ -1,18 +1,16 @@
 import { motion } from "motion/react";
-import engagement from "@/assets/engagement.jpg";
-import haldi from "@/assets/haldi.jpg";
-import mehendi from "@/assets/mehendi.jpg";
-import sangeet from "@/assets/sangeet.jpg";
-import mandap from "@/assets/mandap.jpg";
+import haldi from "@/assets/event-haldi-upload.png";
+import mehendi from "@/assets/event-mehendi-upload.png";
+import sangeet from "@/assets/event-sangeet-upload.png";
+import wedding from "@/assets/event-wedding-upload.png";
 import reception from "@/assets/reception.jpg";
 import { Divider } from "./Divider";
 
 const events = [
-  { name: "Engagement", date: "Aug 20, 2026 · 7:00 PM", venue: "Hotel Marasa Sarovar", desc: "An intimate evening where promises are exchanged and two families become one.", image: engagement },
   { name: "Haldi", date: "Aug 23, 2026 · 10:00 AM", venue: "Family Residence", desc: "Turmeric, marigold, and laughter — a golden blessing for the couple.", image: haldi },
   { name: "Mehendi", date: "Aug 23, 2026 · 4:00 PM", venue: "Floral Courtyard", desc: "Intricate henna patterns drawn while traditions are sung into the evening.", image: mehendi },
   { name: "Sangeet", date: "Aug 24, 2026 · 7:30 PM", venue: "Palace Ballroom", desc: "Where traditions dance with celebration and hearts beat to the rhythm of love.", image: sangeet },
-  { name: "Wedding", date: "Aug 25, 2026 · 6:45 AM", venue: "Kalyana Mandapam", desc: "Before the sacred fire, two souls are bound for seven lifetimes.", image: mandap },
+  { name: "Wedding", date: "Aug 25, 2026 · 6:45 AM", venue: "Kalyana Mandapam", desc: "Before the sacred fire, two souls are bound for seven lifetimes.", image: wedding },
   { name: "Reception", date: "Aug 26, 2026 · 7:00 PM", venue: "The Grand Hall", desc: "An evening of candlelight, blessings, and a thousand toasts to forever.", image: reception },
 ];
 
