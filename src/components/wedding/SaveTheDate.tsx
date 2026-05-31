@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Divider } from "./Divider";
+import bgImage from "@/assets/save-the-date-bg.png";
 
 const TARGET = new Date("2026-08-25T06:45:00+05:30").getTime();
 
@@ -11,11 +11,12 @@ function useCountdown() {
     return () => clearInterval(id);
   }, []);
   const diff = Math.max(0, TARGET - now);
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff / 3600000) % 24);
-  const m = Math.floor((diff / 60000) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-  return { d, h, m, s };
+  return {
+    d: Math.floor(diff / 86400000),
+    h: Math.floor((diff / 3600000) % 24),
+    m: Math.floor((diff / 60000) % 60),
+    s: Math.floor((diff / 1000) % 60),
+  };
 }
 
 export function SaveTheDate() {
@@ -28,67 +29,94 @@ export function SaveTheDate() {
   ];
 
   return (
-    <section className="relative px-6 py-24">
-      <div className="mx-auto max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1 }}
-          className="ornament-border relative rounded-sm bg-card p-10 text-center shadow-royal sm:p-16"
-        >
-          <CornerOrnament className="absolute left-3 top-3" />
-          <CornerOrnament className="absolute right-3 top-3 rotate-90" />
-          <CornerOrnament className="absolute bottom-3 left-3 -rotate-90" />
-          <CornerOrnament className="absolute bottom-3 right-3 rotate-180" />
+    <section className="relative px-4 py-16 sm:px-6 sm:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+        className="relative mx-auto w-full max-w-6xl overflow-hidden rounded-sm shadow-royal"
+        style={{ aspectRatio: "4 / 3" }}
+      >
+        {/* Background art */}
+        <img
+          src={bgImage}
+          alt="Royal Telugu Save the Date frame"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-          <p className="font-display text-xs uppercase tracking-[0.5em] text-gold">
-            Save the Date
-          </p>
-          <h2 className="mt-4 font-serif text-5xl text-wine sm:text-6xl">
-            August 25<span className="text-gold">,</span> 2026
-          </h2>
-          <p className="mt-3 font-script text-3xl text-blush">
-            Muhurtham · 6:45 AM
-          </p>
+        {/* Content overlay positioned to match the central arch */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-[28%] text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="flex w-full flex-col items-center"
+          >
+            <p
+              className="font-display text-[0.55rem] uppercase tracking-[0.5em] sm:text-xs"
+              style={{ color: "#a8842e" }}
+            >
+              Save the Date
+            </p>
+            <h2
+              className="mt-2 font-serif text-2xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl"
+              style={{ color: "#5a1228" }}
+            >
+              August 25<span style={{ color: "#a8842e" }}>,</span> 2026
+            </h2>
+            <p
+              className="mt-1 font-serif text-sm italic sm:text-xl md:text-2xl"
+              style={{ color: "#c97b83" }}
+            >
+              Muhurtham · 6:45 AM
+            </p>
 
-          <Divider />
+            <div className="my-3 flex items-center justify-center gap-2 sm:my-5">
+              <span className="block h-px w-8 sm:w-16" style={{ background: "linear-gradient(to right, transparent, #c9a35a)" }} />
+              <span className="text-[10px]" style={{ color: "#c9a35a" }}>◆</span>
+              <span className="block h-px w-8 sm:w-16" style={{ background: "linear-gradient(to left, transparent, #c9a35a)" }} />
+            </div>
 
-          <div className="grid grid-cols-4 gap-2 sm:gap-6">
-            {cells.map((c) => (
-              <div key={c.label} className="rounded-sm bg-ivory/60 p-3 backdrop-blur sm:p-6">
-                <div className="font-display text-3xl font-semibold text-wine sm:text-5xl">
-                  {String(c.value).padStart(2, "0")}
+            <div className="grid w-full grid-cols-4 gap-1 sm:gap-3">
+              {cells.map((c) => (
+                <div
+                  key={c.label}
+                  className="rounded-sm border px-1 py-1.5 backdrop-blur-sm sm:py-3"
+                  style={{
+                    background: "rgba(255, 248, 235, 0.55)",
+                    borderColor: "#c9a35a",
+                    boxShadow: "0 0 12px rgba(201, 163, 90, 0.25)",
+                  }}
+                >
+                  <div
+                    className="font-serif text-base font-semibold sm:text-2xl md:text-3xl"
+                    style={{ color: "#5a1228" }}
+                  >
+                    {String(c.value).padStart(2, "0")}
+                  </div>
+                  <div
+                    className="font-display text-[0.45rem] uppercase tracking-[0.2em] sm:text-[0.6rem]"
+                    style={{ color: "#a8842e" }}
+                  >
+                    {c.label}
+                  </div>
                 </div>
-                <div className="mt-1 font-display text-[0.6rem] uppercase tracking-[0.3em] text-gold sm:text-xs">
-                  {c.label}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <p className="mt-10 font-serif italic text-muted-foreground">
-            Sri Venkateswara Kalyana Mandapam · Tirupati, Andhra Pradesh
-          </p>
-        </motion.div>
-      </div>
+            <p
+              className="mt-4 font-serif text-[0.6rem] italic sm:mt-8 sm:text-sm md:text-base"
+              style={{ color: "#5a1228" }}
+            >
+              Sri Venkateswara Kalyana Mandapam
+              <br />
+              Tirupati, Andhra Pradesh
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
-  );
-}
-
-function CornerOrnament({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 60 60"
-      className={`h-10 w-10 text-gold ${className ?? ""}`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-    >
-      <path d="M2 30 Q 2 2, 30 2" />
-      <path d="M10 30 Q 10 10, 30 10" />
-      <circle cx="14" cy="14" r="2" fill="currentColor" />
-      <path d="M2 50 Q 12 50, 18 44 Q 24 38, 18 30" />
-    </svg>
   );
 }
