@@ -16,34 +16,43 @@ export function Venue() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
-          className="ornament-border mt-10 grid gap-0 overflow-hidden md:grid-cols-2"
+          className="ornament-border mt-10 grid gap-0 overflow-hidden bg-ivory md:grid-cols-2"
         >
           <div className="p-10 text-center md:text-left">
-            <h3 className="font-script text-5xl text-wine">Sri Venkateswara Kalyana Mandapam</h3>
+            <h3 className="font-script text-5xl text-wine">P.A.G Convention Center</h3>
             <p className="mt-3 font-serif text-lg text-foreground/80">
-              Tirumala Road, Tirupati, Andhra Pradesh — a temple-inspired hall where centuries-old rituals find a home of marble and gold.
+              An elegant convention hall in the heart of Ongole — where tradition,
+              warmth, and celebration come together for our sacred day.
             </p>
 
             <dl className="mt-6 space-y-3 text-sm">
-              <Row k="Address" v="Tirumala Road, Tirupati, AP 517501" />
-              <Row k="Parking" v="Valet on premises" />
-              <Row k="Stay" v="Marasa Sarovar · Hotel Bliss · Fortune Kences" />
+              <Row k="Address" v="Guntur Road, Near TDP Party Office" />
+              <Row k="Locality" v="Venkateswara Nagar, Ongole, AP – 523001" />
+              <Row k="Date" v="03 July 2026 · 1:45 AM" />
             </dl>
 
-            <a
-              href="https://maps.google.com/?q=Tirupati"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-block rounded-full bg-royal px-8 py-3 font-display text-xs uppercase tracking-[0.35em] text-ivory shadow-royal ring-1 ring-gold/50 transition hover:shadow-gold-glow"
-            >
-              Get Directions
-            </a>
+            <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
+              <a
+                href="https://maps.google.com/?q=P.A.G+Convention+Center+Ongole"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block rounded-full bg-royal px-7 py-3 font-display text-[0.65rem] uppercase tracking-[0.35em] text-ivory shadow-royal ring-1 ring-gold/50 transition hover:shadow-gold-glow"
+              >
+                📍 Get Directions
+              </a>
+              <a
+                href="tel:+919999999999"
+                className="inline-block rounded-full border border-gold/60 bg-ivory px-7 py-3 font-display text-[0.65rem] uppercase tracking-[0.35em] text-wine transition hover:bg-champagne"
+              >
+                📞 Contact Family
+              </a>
+            </div>
           </div>
 
           <div className="min-h-[360px] bg-champagne">
             <iframe
               title="Wedding venue map"
-              src="https://www.google.com/maps?q=Tirupati%20Andhra%20Pradesh&output=embed"
+              src="https://www.google.com/maps?q=P.A.G+Convention+Center+Ongole+Andhra+Pradesh&output=embed"
               className="h-full w-full grayscale-[40%]"
               loading="lazy"
             />
