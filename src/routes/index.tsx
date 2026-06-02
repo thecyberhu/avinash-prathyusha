@@ -4,11 +4,10 @@ import { LoadingScreen } from "@/components/wedding/LoadingScreen";
 import { Hero } from "@/components/wedding/Hero";
 import { SaveTheDate } from "@/components/wedding/SaveTheDate";
 import { Events } from "@/components/wedding/Events";
-import { Story } from "@/components/wedding/Story";
+import { Rituals } from "@/components/wedding/Rituals";
 import { Venue } from "@/components/wedding/Venue";
 import { Rsvp } from "@/components/wedding/Rsvp";
 import { Footer } from "@/components/wedding/Footer";
-import { Petals } from "@/components/wedding/Petals";
 import { MusicToggle } from "@/components/wedding/MusicToggle";
 
 export const Route = createFileRoute("/")({
@@ -36,11 +35,10 @@ function Index() {
   return (
     <main className="relative overflow-x-hidden">
       <LoadingScreen open={loading} onOpen={() => setLoading(false)} />
-      {!loading && <Petals />}
       <Hero />
       <SaveTheDate />
       <Events />
-      <Story />
+      <Rituals />
       <Venue />
       <Rsvp />
       <Footer />
