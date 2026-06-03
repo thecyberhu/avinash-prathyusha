@@ -156,10 +156,25 @@ function SideArch({ side }: { side: "left" | "right" }) {
             ))
           )}
         </g>
-        <g transform="translate(30, 380)" fill={WINE_DEEP} stroke={GOLD} strokeWidth="1">
-          <path d="M10 80 Q10 40 40 35 Q70 30 95 40 Q115 45 118 55 Q125 50 125 35 Q130 25 135 35 Q138 50 130 60 Q125 65 120 65 L120 85 Q120 95 110 95 L100 95 L100 85 L60 85 L60 95 L50 95 Q40 95 40 85 L40 75 Q25 75 18 85 Q10 90 10 80 Z" />
-          <path d="M50 50 L100 50 L95 70 L55 70 Z" fill={WINE} stroke={GOLD_BRIGHT} />
-          <circle cx="75" cy="60" r="3" fill={GOLD} stroke="none" />
+        <g transform="translate(20, 370)" fill={GOLD} stroke={GOLD_BRIGHT} strokeWidth="1.2">
+          {/* Royal elephant silhouette */}
+          <path d="M20 95 Q20 55 50 50 Q75 46 100 52 Q120 56 128 68 Q132 60 138 58 Q146 56 150 62 Q154 70 148 78 Q142 84 134 82 L134 92 Q134 100 126 100 L118 100 L118 92 L60 92 L60 100 L52 100 Q44 100 44 92 L44 86 Q32 88 24 94 Q18 98 20 95 Z" />
+          {/* Decorative blanket */}
+          <path d="M52 58 L120 58 Q124 58 122 62 L116 76 Q114 80 110 80 L62 80 Q58 80 56 76 L50 62 Q48 58 52 58 Z" fill={WINE} stroke={GOLD_BRIGHT} strokeWidth="1.2" />
+          <circle cx="86" cy="69" r="3.5" fill={GOLD_BRIGHT} stroke="none" />
+          <circle cx="72" cy="69" r="1.5" fill={GOLD_BRIGHT} stroke="none" />
+          <circle cx="100" cy="69" r="1.5" fill={GOLD_BRIGHT} stroke="none" />
+          {/* Tassels */}
+          <line x1="58" y1="80" x2="58" y2="86" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
+          <line x1="70" y1="80" x2="70" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
+          <line x1="82" y1="80" x2="82" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
+          <line x1="94" y1="80" x2="94" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
+          <line x1="106" y1="80" x2="106" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
+          {/* Eye */}
+          <circle cx="140" cy="68" r="1.2" fill={WINE_DEEP} stroke="none" />
+          {/* Crown */}
+          <path d="M130 50 L135 42 L140 50 L145 42 L150 50 Z" fill={GOLD_BRIGHT} stroke={GOLD} />
+          <circle cx="140" cy="44" r="1.5" fill={WINE} stroke="none" />
         </g>
       </svg>
     </div>
