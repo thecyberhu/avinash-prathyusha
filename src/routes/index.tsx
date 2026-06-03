@@ -7,7 +7,7 @@ import { SaveTheDate } from "@/components/wedding/SaveTheDate";
 import { Couple } from "@/components/wedding/Couple";
 import { Events } from "@/components/wedding/Events";
 import { Family } from "@/components/wedding/Family";
-import { Rituals } from "@/components/wedding/Rituals";
+
 import { Venue } from "@/components/wedding/Venue";
 import { Blessings } from "@/components/wedding/Blessings";
 import { Finale } from "@/components/wedding/Finale";
@@ -45,7 +45,6 @@ function Index() {
       <Couple />
       <Events />
       <Family />
-      <Rituals />
       <Venue />
       <Blessings />
       <Finale />
