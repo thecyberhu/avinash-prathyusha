@@ -64,7 +64,7 @@ export function SaveTheDate() {
                 Friday, 03 July<span style={{ color: GOLD }}>,</span> 2026
               </h2>
               <p className="mt-2 font-serif italic sm:text-xl" style={{ color: "#c97b83" }}>
-                Muhurtham · 🕐 1:45 AM Onwards
+                Muhurtham · 🕐 Night at 1:47 hrs. Uttarashada Nakshatrayukta Dhanusu Lagnam
               </p>
 
               <div className="my-5 flex items-center justify-center gap-2">

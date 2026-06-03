@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import haldi from "@/assets/event-haldi-upload.png";
-import mehendi from "@/assets/event-mehendi-upload.png";
-import sangeet from "@/assets/event-sangeet-upload.png";
-import wedding from "@/assets/event-wedding-upload.png";
-import reception from "@/assets/reception.jpg";
+import haldi from "@/assets/event-haldi.png";
+import mehendi from "@/assets/event-mehndi.png";
+import sangeet from "@/assets/event-sangeet.png";
+import wedding from "@/assets/shadi.png";
+import reception from "@/assets/event-reception.png";
 import { Divider } from "./Divider";
 
 const events = [
-  { name: "Engagement", date: "Coming Soon", time: "TBA", image: wedding },
   { name: "Haldi Ceremony", date: "02 July 2026", time: "10:00 AM", image: haldi },
   { name: "Mehendi Ceremony", date: "02 July 2026", time: "4:00 PM", image: mehendi },
   { name: "Sangeet Night", date: "02 July 2026", time: "7:30 PM", image: sangeet },

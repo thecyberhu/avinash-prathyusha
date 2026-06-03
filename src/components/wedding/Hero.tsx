@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import hero from "@/assets/hero-couple.jpg";
+import hero from "@/assets/opening.png";
 
 export function Hero() {
   // Subtle parallax
