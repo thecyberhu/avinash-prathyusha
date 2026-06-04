@@ -138,43 +138,98 @@ function SideArch({ side }: { side: "left" | "right" }) {
     <div className="pointer-events-none absolute top-16 bottom-16 hidden w-32 sm:block lg:w-44"
       style={{ [side]: 16 } as React.CSSProperties}>
       <svg viewBox="0 0 180 500" className="h-full w-full" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id={`pillar-${side}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={GOLD_BRIGHT} stopOpacity="0.22" />
+            <stop offset="50%" stopColor={GOLD} stopOpacity="0.1" />
+            <stop offset="100%" stopColor={GOLD_BRIGHT} stopOpacity="0.22" />
+          </linearGradient>
+          <radialGradient id={`feather-${side}`} cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stopColor={GOLD_BRIGHT} />
+            <stop offset="55%" stopColor={GOLD} />
+            <stop offset="100%" stopColor={WINE} />
+          </radialGradient>
+        </defs>
+
+        {/* Outer ogee arch pillar */}
         <path d="M20 480 L20 180 Q20 40 90 40 Q160 40 160 180 L160 480 Z"
-          fill={CREAM} fillOpacity="0.08" stroke={GOLD} strokeWidth="2" />
+          fill={`url(#pillar-${side})`} stroke={GOLD} strokeWidth="2" />
         <path d="M30 470 L30 185 Q30 55 90 55 Q150 55 150 185 L150 470 Z"
           fill="none" stroke={GOLD_BRIGHT} strokeWidth="0.8" opacity="0.7" />
-        <g stroke={GOLD} strokeWidth="1" fill={GOLD}>
-          <line x1="90" y1="60" x2="90" y2="140" />
-          <circle cx="90" cy="150" r="14" fillOpacity="0.3" stroke={GOLD_BRIGHT} />
-          <circle cx="90" cy="150" r="6" />
-          <circle cx="90" cy="170" r="2" />
-          <circle cx="90" cy="180" r="2.5" />
+        <path d="M90 40 L82 28 L90 32 L98 28 Z" fill={GOLD_BRIGHT} />
+
+        {/* Glowing diya hanging from arch */}
+        <line x1="90" y1="60" x2="90" y2="108" stroke={GOLD} strokeWidth="1" />
+        <ellipse cx="90" cy="120" rx="14" ry="10" fill={GOLD} stroke={GOLD_BRIGHT} strokeWidth="1" />
+        <ellipse cx="90" cy="118" rx="10" ry="6" fill={WINE_DEEP} />
+        <path d="M88 112 Q90 102 92 112 Q91 116 90 116 Q89 116 88 112 Z" fill={GOLD_BRIGHT}>
+          <animate attributeName="opacity" values="1;0.55;1" dur="1.6s" repeatCount="indefinite" />
+        </path>
+        <circle cx="90" cy="108" r="9" fill={GOLD_BRIGHT} opacity="0.18">
+          <animate attributeName="r" values="6;13;6" dur="2.4s" repeatCount="indefinite" />
+        </circle>
+
+        {/* Floral mandala */}
+        <g transform="translate(90, 215)">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <ellipse key={i} cx="0" cy="-16" rx="4.5" ry="13"
+              fill={GOLD} fillOpacity="0.45" stroke={GOLD_BRIGHT} strokeWidth="0.5"
+              transform={`rotate(${i * 45})`} />
+          ))}
+          {Array.from({ length: 8 }).map((_, i) => (
+            <circle key={i} cx="0" cy="-22" r="1.5" fill={GOLD_BRIGHT}
+              transform={`rotate(${i * 45 + 22.5})`} />
+          ))}
+          <circle r="6" fill={GOLD_BRIGHT} />
+          <circle r="2.5" fill={WINE} />
         </g>
-        <g fill={GOLD} opacity="0.35">
-          {Array.from({ length: 6 }).map((_, r) =>
-            Array.from({ length: 4 }).map((_, c) => (
-              <circle key={`${r}-${c}`} cx={45 + c * 30} cy={220 + r * 40} r="2" />
+
+        {/* Paisley */}
+        <g transform="translate(90, 285)" stroke={GOLD} strokeWidth="1">
+          <path d="M0 -4 Q-20 8 -16 32 Q-8 46 0 38 Q8 46 16 32 Q20 8 0 -4 Z"
+            fill={GOLD} fillOpacity="0.22" />
+          <circle cx="0" cy="18" r="3" fill={GOLD_BRIGHT} />
+          <circle cx="-7" cy="28" r="1.4" fill={GOLD_BRIGHT} />
+          <circle cx="7" cy="28" r="1.4" fill={GOLD_BRIGHT} />
+        </g>
+
+        {/* Peacock at base */}
+        <g transform="translate(90, 420)">
+          {Array.from({ length: 9 }).map((_, i) => {
+            const a = -80 + i * 20;
+            const rad = (a * Math.PI) / 180;
+            const x = Math.sin(rad) * 40;
+            const y = -Math.cos(rad) * 40;
+            return (
+              <g key={i}>
+                <line x1="0" y1="0" x2={x} y2={y} stroke={GOLD} strokeWidth="0.7" opacity="0.7" />
+                <ellipse cx={x} cy={y} rx="5" ry="8" fill={`url(#feather-${side})`}
+                  transform={`rotate(${a} ${x} ${y})`} />
+                <circle cx={x} cy={y} r="2" fill={WINE_DEEP} />
+                <circle cx={x} cy={y} r="0.7" fill={GOLD_BRIGHT} />
+              </g>
+            );
+          })}
+          <ellipse cx="0" cy="6" rx="9" ry="12" fill={WINE} stroke={GOLD_BRIGHT} strokeWidth="1" />
+          <path d="M0 -2 Q-2 -14 -8 -18" fill="none" stroke={WINE} strokeWidth="4" strokeLinecap="round" />
+          <circle cx="-9" cy="-19" r="4" fill={WINE} stroke={GOLD_BRIGHT} strokeWidth="0.8" />
+          <line x1="-9" y1="-23" x2="-10" y2="-28" stroke={GOLD} strokeWidth="0.8" />
+          <line x1="-11" y1="-23" x2="-13" y2="-27" stroke={GOLD} strokeWidth="0.8" />
+          <line x1="-7" y1="-23" x2="-6" y2="-28" stroke={GOLD} strokeWidth="0.8" />
+          <circle cx="-10" cy="-28" r="1.2" fill={GOLD_BRIGHT} />
+          <circle cx="-13" cy="-27" r="1" fill={GOLD_BRIGHT} />
+          <circle cx="-6" cy="-28" r="1" fill={GOLD_BRIGHT} />
+          <path d="M-13 -19 L-16 -18 L-13 -17 Z" fill={GOLD_BRIGHT} />
+          <circle cx="-10" cy="-19" r="0.8" fill={GOLD_BRIGHT} />
+        </g>
+
+        {/* Background dots */}
+        <g fill={GOLD} opacity="0.22">
+          {Array.from({ length: 3 }).map((_, r) =>
+            Array.from({ length: 3 }).map((_, c) => (
+              <circle key={`${r}-${c}`} cx={60 + c * 30} cy={155 + r * 18} r="1.1" />
             ))
           )}
-        </g>
-        <g transform="translate(20, 370)" fill={GOLD} stroke={GOLD_BRIGHT} strokeWidth="1.2">
-          {/* Royal elephant silhouette */}
-          <path d="M20 95 Q20 55 50 50 Q75 46 100 52 Q120 56 128 68 Q132 60 138 58 Q146 56 150 62 Q154 70 148 78 Q142 84 134 82 L134 92 Q134 100 126 100 L118 100 L118 92 L60 92 L60 100 L52 100 Q44 100 44 92 L44 86 Q32 88 24 94 Q18 98 20 95 Z" />
-          {/* Decorative blanket */}
-          <path d="M52 58 L120 58 Q124 58 122 62 L116 76 Q114 80 110 80 L62 80 Q58 80 56 76 L50 62 Q48 58 52 58 Z" fill={WINE} stroke={GOLD_BRIGHT} strokeWidth="1.2" />
-          <circle cx="86" cy="69" r="3.5" fill={GOLD_BRIGHT} stroke="none" />
-          <circle cx="72" cy="69" r="1.5" fill={GOLD_BRIGHT} stroke="none" />
-          <circle cx="100" cy="69" r="1.5" fill={GOLD_BRIGHT} stroke="none" />
-          {/* Tassels */}
-          <line x1="58" y1="80" x2="58" y2="86" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
-          <line x1="70" y1="80" x2="70" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
-          <line x1="82" y1="80" x2="82" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
-          <line x1="94" y1="80" x2="94" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
-          <line x1="106" y1="80" x2="106" y2="87" stroke={GOLD_BRIGHT} strokeWidth="0.8" />
-          {/* Eye */}
-          <circle cx="140" cy="68" r="1.2" fill={WINE_DEEP} stroke="none" />
-          {/* Crown */}
-          <path d="M130 50 L135 42 L140 50 L145 42 L150 50 Z" fill={GOLD_BRIGHT} stroke={GOLD} />
-          <circle cx="140" cy="44" r="1.5" fill={WINE} stroke="none" />
         </g>
       </svg>
     </div>
