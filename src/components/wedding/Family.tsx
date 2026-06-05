@@ -108,18 +108,18 @@ function FamilyCard({
       >
         {/* Title ribbon */}
         <div className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative px-6 py-1.5" style={{
+          <div className="relative px-8 py-2.5" style={{
             background: `linear-gradient(180deg, ${WINE} 0%, #3a0a18 100%)`,
-            border: `1px solid ${GOLD}`,
-            boxShadow: `0 4px 14px rgba(90,18,40,0.4), inset 0 0 0 2px #3a0a18`,
+            border: `1.5px solid ${GOLD_BRIGHT}`,
+            boxShadow: `0 6px 18px rgba(90,18,40,0.5), inset 0 0 0 2px #3a0a18`,
           }}>
-            <p className="font-display text-[0.65rem] uppercase tracking-[0.4em]" style={{ color: GOLD_BRIGHT }}>
+            <p className="font-display text-sm font-semibold uppercase tracking-[0.35em] sm:text-base" style={{ color: "#fbe4a8", textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
               {title}
             </p>
             <span className="absolute -left-2 top-1/2 h-0 w-0 -translate-y-1/2"
-              style={{ borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderRight: `6px solid ${WINE}` }} />
+              style={{ borderTop: "8px solid transparent", borderBottom: "8px solid transparent", borderRight: `8px solid ${WINE}` }} />
             <span className="absolute -right-2 top-1/2 h-0 w-0 -translate-y-1/2"
-              style={{ borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: `6px solid ${WINE}` }} />
+              style={{ borderTop: "8px solid transparent", borderBottom: "8px solid transparent", borderLeft: `8px solid ${WINE}` }} />
           </div>
         </div>
 
