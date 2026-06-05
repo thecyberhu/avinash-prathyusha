@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import namasteMedallion from "@/assets/namaste-medallion.png.asset.json";
+import namasteMedallion from "@/assets/namaste-medallion.png";
 
 export function Blessings() {
   return (

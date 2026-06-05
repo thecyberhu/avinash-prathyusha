@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Divider } from "./Divider";
-import groomFamily from "@/assets/groom-family.jpeg.asset.json";
-import brideFamily from "@/assets/bride-family.jpeg.asset.json";
+import groomFamily from "@/assets/groom-family.jpeg";
+import brideFamily from "@/assets/bride-family.jpeg";
 
 const WINE = "#5a1228";
 const GOLD = "#c9a35a";

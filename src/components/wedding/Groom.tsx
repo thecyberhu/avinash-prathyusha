@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Divider } from "./Divider";
-import groomPortrait from "@/assets/groom-portrait.png.asset.json";
-import bridePortrait from "@/assets/bride-portrait.png.asset.json";
+import groomPortrait from "@/assets/groom-portrait.png";
+import bridePortrait from "@/assets/bride-portrait.png";
 
 
 export function Groom() {
