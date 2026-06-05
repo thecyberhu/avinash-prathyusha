@@ -167,7 +167,7 @@ export function Couple() {
             }}>
             {/* Couple image underneath */}
             <img
-              src={coupleAsset.url}
+              src={coupleAsset}
               alt="Avinash & Sai Prathyusha"
               className="absolute inset-0 h-full w-full object-cover"
               draggable={false}

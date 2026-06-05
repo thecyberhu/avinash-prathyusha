@@ -15,7 +15,7 @@ export function Groom() {
           transition={{ duration: 0.9 }}
           className="relative mx-auto w-full max-w-md"
         >
-          <Portrait image={groomPortrait.url} alt="Avinash" tint="#5a1228" />
+          <Portrait image={groomPortrait} alt="Avinash" tint="#5a1228" />
         </motion.div>
 
         <motion.div
@@ -75,7 +75,7 @@ export function Bride() {
           transition={{ duration: 0.9 }}
           className="relative mx-auto w-full max-w-md md:order-1"
         >
-          <Portrait image={bridePortrait.url} alt="Sai Prathyusha" tint="#7a1e3a" />
+          <Portrait image={bridePortrait} alt="Sai Prathyusha" tint="#7a1e3a" />
         </motion.div>
       </div>
     </section>
