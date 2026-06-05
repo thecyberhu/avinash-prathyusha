@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
 import { Divider } from "./Divider";
+import groomPortrait from "@/assets/groom-portrait.png.asset.json";
+import bridePortrait from "@/assets/bride-portrait.png.asset.json";
+
 
 export function Groom() {
   return (
@@ -12,7 +15,7 @@ export function Groom() {
           transition={{ duration: 0.9 }}
           className="relative mx-auto w-full max-w-md"
         >
-          <Portrait initial="A" tint="#5a1228" />
+          <Portrait image={groomPortrait.url} alt="Avinash" tint="#5a1228" />
         </motion.div>
 
         <motion.div
@@ -72,17 +75,16 @@ export function Bride() {
           transition={{ duration: 0.9 }}
           className="relative mx-auto w-full max-w-md md:order-1"
         >
-          <Portrait initial="P" tint="#7a1e3a" />
+          <Portrait image={bridePortrait.url} alt="Sai Prathyusha" tint="#7a1e3a" />
         </motion.div>
       </div>
     </section>
   );
 }
 
-function Portrait({ initial, tint }: { initial: string; tint: string }) {
+function Portrait({ image, alt, tint }: { image: string; alt: string; tint: string }) {
   return (
     <div className="relative mx-auto aspect-[4/5] w-full">
-      {/* Ornate frame */}
       <div
         className="relative h-full w-full overflow-hidden bg-card shadow-royal"
         style={{
@@ -91,37 +93,24 @@ function Portrait({ initial, tint }: { initial: string; tint: string }) {
           boxShadow: "0 30px 80px -20px rgba(90,18,40,0.5), 0 0 0 8px rgba(248,243,238,1), 0 0 0 10px #c9a35a",
         }}
       >
+        <img
+          src={image}
+          alt={alt}
+          draggable={false}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {/* Soft vignette */}
         <div
-          className="absolute inset-0"
+          className="pointer-events-none absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse at top, ${tint} 0%, #2a0f1d 100%)`,
+            background: `radial-gradient(ellipse at center, transparent 55%, ${tint}55 100%)`,
           }}
         />
-        {/* Decorative initial */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="font-script text-[14rem] leading-none"
-            style={{
-              background: "linear-gradient(180deg, #f4d98a 0%, #c9a35a 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(0 0 30px rgba(201,163,90,0.4))",
-            }}
-          >
-            {initial}
-          </span>
-        </div>
-        {/* Pattern overlay */}
-        <svg className="absolute inset-0 h-full w-full opacity-20" viewBox="0 0 200 250" preserveAspectRatio="none">
-          <defs>
-            <pattern id={`p-${initial}`} x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="1" fill="#c9a35a" />
-            </pattern>
-          </defs>
-          <rect width="200" height="250" fill={`url(#p-${initial})`} />
-        </svg>
+        {/* Inner gold hairline */}
+        <div className="pointer-events-none absolute inset-2 border border-[#c9a35a]/50" style={{ borderRadius: "inherit" }} />
       </div>
       <span className="absolute -bottom-3 left-1/2 h-5 w-5 -translate-x-1/2 rotate-45 bg-gold ring-2 ring-ivory" />
     </div>
   );
 }
+
