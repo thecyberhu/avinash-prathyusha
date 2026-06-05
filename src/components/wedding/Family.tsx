@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Divider } from "./Divider";
-import groomFamily from "@/assets/groom-family.jpeg.asset.json";
-import brideFamily from "@/assets/bride-family.jpeg.asset.json";
+import groomFamily from "@/assets/groom-family.jpeg";
+import brideFamily from "@/assets/bride-family.jpeg";
 
 const WINE = "#5a1228";
 const GOLD = "#c9a35a";
@@ -34,7 +34,7 @@ export function Family() {
         <div className="mt-16 grid items-center gap-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
           <FamilyCard
             title="Groom's Family"
-            image={groomFamily.url}
+            image={groomFamily}
             father="Sri Nidamanuri Srinivasulu"
             mother="Smt. Nidamanuri Anuradha"
             son="Avinash"
@@ -46,7 +46,7 @@ export function Family() {
 
           <FamilyCard
             title="Bride's Family"
-            image={brideFamily.url}
+            image={brideFamily}
             father="Sri Bheemavarapu Venugopal Rao"
             mother="Smt. Jaganadham Sreelatha"
             son="Sai Prathyusha"

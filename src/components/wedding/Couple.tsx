@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Divider } from "./Divider";
-import coupleAsset from "@/assets/couple.png.asset.json";
+import coupleAsset from "@/assets/couple.png";
 
 export function Couple() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -167,7 +167,7 @@ export function Couple() {
             }}>
             {/* Couple image underneath */}
             <img
-              src={coupleAsset.url}
+              src={coupleAsset}
               alt="Avinash & Sai Prathyusha"
               className="absolute inset-0 h-full w-full object-cover"
               draggable={false}

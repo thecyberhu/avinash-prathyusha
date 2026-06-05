@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import namasteMedallion from "@/assets/namaste-medallion.png.asset.json";
+import namasteMedallion from "@/assets/namaste-medallion.png";
 
 export function Blessings() {
   return (
@@ -13,7 +13,7 @@ export function Blessings() {
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
         <motion.img
-          src={namasteMedallion.url}
+          src={namasteMedallion}
           alt="Seeking your blessings"
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
