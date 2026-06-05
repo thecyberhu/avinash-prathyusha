@@ -15,7 +15,7 @@ export function Groom() {
           transition={{ duration: 0.9 }}
           className="relative mx-auto w-full max-w-md"
         >
-          <Portrait initial="A" tint="#5a1228" />
+          <Portrait image={groomPortrait.url} alt="Avinash" tint="#5a1228" />
         </motion.div>
 
         <motion.div
