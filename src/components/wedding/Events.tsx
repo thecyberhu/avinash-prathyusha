@@ -36,23 +36,14 @@ export function Events() {
           <Divider />
         </header>
 
-        <div className="relative mt-16">
-          {/* Top row */}
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
-            <EventCard event={haldiEv} variant="side" />
-            <EventCard event={mehendiEv} variant="side" />
-          </div>
-
-          {/* Center large card - overlaps */}
-          <div className="relative z-10 mx-auto mt-6 max-w-xl sm:-mt-16">
+        <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 sm:gap-y-20 lg:grid-cols-3">
+          <EventCard event={haldiEv} variant="side" />
+          <div className="lg:row-span-2 lg:flex lg:items-center">
             <EventCard event={weddingEv} variant="center" />
           </div>
-
-          {/* Bottom row */}
-          <div className="-mt-6 grid grid-cols-1 gap-8 sm:-mt-20 sm:grid-cols-2 sm:gap-10">
-            <EventCard event={sangeetEv} variant="side" />
-            <EventCard event={receptionEv} variant="side" />
-          </div>
+          <EventCard event={mehendiEv} variant="side" />
+          <EventCard event={sangeetEv} variant="side" />
+          <EventCard event={receptionEv} variant="side" />
         </div>
       </div>
     </section>
