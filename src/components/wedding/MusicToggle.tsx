@@ -2,22 +2,49 @@ import { useEffect, useRef, useState } from "react";
 
 export function MusicToggle() {
   const [playing, setPlaying] = useState(false);
-  const ref = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    ref.current = new Audio(
-      "https://cdn.pixabay.com/audio/2022/10/30/audio_64de0d4f02.mp3",
-    );
-    ref.current.loop = true;
-    ref.current.volume = 0.35;
-    return () => ref.current?.pause();
+    audioRef.current = document.getElementById("global-audio") as HTMLAudioElement | null;
+    const a = audioRef.current;
+    if (a) {
+      a.volume = 0.35;
+      // Try autoplay; if blocked the element is muted and still plays.
+      a.play().then(() => setPlaying(true)).catch(() => {
+        // ensure it can autoplay muted
+        a.muted = true;
+        a.play().catch(() => {});
+        setPlaying(!a.paused);
+      });
+
+      // Unmute on first user interaction and resume audible playback
+      const onUserInteract = () => {
+        if (a.muted) {
+          a.muted = false;
+          a.volume = 0.35;
+          a.play().catch(() => {});
+        }
+        window.removeEventListener("pointerdown", onUserInteract);
+      };
+
+      window.addEventListener("pointerdown", onUserInteract, { once: true });
+    }
+    return () => {
+      // leave the global audio running across navigations
+    };
   }, []);
 
   const toggle = () => {
-    if (!ref.current) return;
-    if (playing) ref.current.pause();
-    else ref.current.play().catch(() => {});
-    setPlaying(!playing);
+    const a = audioRef.current || (document.getElementById("global-audio") as HTMLAudioElement | null);
+    if (!a) return;
+    if (a.paused) {
+      a.muted = false;
+      a.play().catch(() => {});
+      setPlaying(true);
+    } else {
+      a.pause();
+      setPlaying(false);
+    }
   };
 
   return (

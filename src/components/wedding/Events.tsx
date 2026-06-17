@@ -19,11 +19,11 @@ type EventItem = {
 };
 
 const events: Record<string, EventItem> = {
-  haldi: { name: "Haldi Ceremony", date: "02 July 2026", time: "10:00 AM", image: haldi, number: "01", icon: "haldi" },
-  mehendi: { name: "Mehendi Ceremony", date: "02 July 2026", time: "4:00 PM", image: mehendi, number: "02", icon: "mehendi" },
-  sangeet: { name: "Sangeet Night", date: "02 July 2026", time: "7:30 PM", image: sangeet, number: "03", icon: "sangeet" },
-  wedding: { name: "Wedding Ceremony", date: "03 July 2026", time: "1:45 AM", image: wedding, number: "04", icon: "wedding" },
-  reception: { name: "Reception", date: "03 July 2026", time: "8:00 PM", image: reception, number: "05", icon: "reception" },
+  haldi: { name: "Haldi ", date: "03 July 2026", time: "11:00 AM", image: haldi, number: "03", icon: "haldi" },
+  mehendi: { name: "Mehendi", date: "02 July 2026", time: "11:00 AM", image: mehendi, number: "01", icon: "mehendi" },
+  sangeet: { name: "Sangeet", date: "02 July 2026", time: "7:30 PM", image: sangeet, number: "02", icon: "sangeet" },
+  wedding: { name: "Wedding Ceremony", date: "03 July 2026", time: "1:47 AM", image: wedding, number: "05", icon: "wedding" },
+  reception: { name: "Reception", date: "03 July 2026", time: "8:00 PM", image: reception, number: "04", icon: "reception" },
 };
 
 const OCTAGON_CLIP =
@@ -58,11 +58,12 @@ export function Events() {
         {/* Desktop: symmetrical 3-col grid with center as feature; Mobile: stack */}
         <div className="mt-20 hidden lg:grid lg:grid-cols-3 lg:gap-x-10 lg:gap-y-14 lg:items-center">
           {/* top row */}
-          <EventCard event={events.haldi} variant="side" />
-          <EventCard event={events.wedding} variant="center" rowSpan />
-          <EventCard event={events.mehendi} variant="side" />
+           <EventCard event={events.mehendi} variant="side" />
+           <EventCard event={events.sangeet} variant="side" />
+           <EventCard event={events.wedding} variant="center" rowSpan />
+          
           {/* bottom row */}
-          <EventCard event={events.sangeet} variant="side" />
+          <EventCard event={events.haldi} variant="side" />
           <EventCard event={events.reception} variant="side" />
         </div>
 
@@ -79,11 +80,11 @@ export function Events() {
 
         {/* Mobile */}
         <div className="mt-14 grid grid-cols-1 gap-y-12 sm:hidden">
-          <EventCard event={events.haldi} variant="side" />
           <EventCard event={events.mehendi} variant="side" />
-          <EventCard event={events.wedding} variant="center" />
-          <EventCard event={events.sangeet} variant="side" />
+            <EventCard event={events.sangeet} variant="side" />
+          <EventCard event={events.haldi} variant="side" />
           <EventCard event={events.reception} variant="side" />
+          <EventCard event={events.wedding} variant="center" />
         </div>
       </div>
     </section>
@@ -174,7 +175,7 @@ function EventCard({
                   <img
                     src={event.image}
                     alt={event.name}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a14]/95 via-[#1a0a14]/40 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6 text-center">
@@ -294,7 +295,7 @@ function EventCard({
                   </div>
 
                   {/* CTA pinned-ish at bottom */}
-                  <div className="relative z-10 mt-auto pt-6">
+                  <div className="relative z-9 mt-auto pt-6">
                     <p
                       className="font-display text-[0.55rem] uppercase tracking-[0.4em]"
                       style={{ color: "rgba(232,180,80,0.75)" }}

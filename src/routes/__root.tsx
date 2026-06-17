@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { MusicToggle } from "@/components/wedding/MusicToggle";
 
 function NotFoundComponent() {
   return (
@@ -101,6 +102,18 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {/* Global background audio — persists across all page navigations */}
+        <audio
+          id="global-audio"
+          src="/music/radhe shaym.mpeg"
+          loop
+          preload="auto"
+          autoPlay
+          muted
+          playsInline
+          aria-hidden
+          style={{ display: "none" }}
+        />
         {children}
         <Scripts />
       </body>
@@ -114,6 +127,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      {/* Music toggle button — fixed bottom-right, visible on all pages */}
+      <MusicToggle />
     </QueryClientProvider>
   );
 }

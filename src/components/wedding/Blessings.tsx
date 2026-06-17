@@ -146,7 +146,7 @@ export function Blessings() {
                   textShadow: "0 2px 20px rgba(232,180,80,0.2)",
                 }}
               >
-                Leave a Royal Blessing
+                Bless Our Forever
               </h2>
 
               <p
@@ -166,133 +166,13 @@ export function Blessings() {
                 className="max-w-md font-serif text-base italic leading-relaxed sm:text-lg"
                 style={{ color: "#e8d9b8" }}
               >
-                Share your heartfelt wishes and become a cherished part of our sacred wedding journey.
+                YOURS WORDS OF LOVE AND BLESSINGS WILL FOREVER REMAIN A TREASURED PART OF OUR JOURNEY.
               </p>
 
-              {/* CTA */}
-              <AnimatePresence mode="wait">
-                {!scrollOpen && !sealed && (
-                  <motion.button
-                    key="cta"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    onClick={() => setScrollOpen(true)}
-                    className="group relative mt-8 overflow-hidden rounded-full px-10 py-4 font-display text-xs uppercase tracking-[0.4em] sm:text-sm"
-                    style={{
-                      background: "linear-gradient(180deg, #e8b450 0%, #b8842e 100%)",
-                      color: "#2a0f1d",
-                      boxShadow:
-                        "0 10px 30px -10px rgba(232,180,80,0.6), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.2)",
-                    }}
-                  >
-                    <span className="relative z-10">🪷 Open Royal Scroll</span>
-                    <span
-                      className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-                    />
-                  </motion.button>
-                )}
-              </AnimatePresence>
+             
 
-              {/* Scroll */}
-              <AnimatePresence>
-                {scrollOpen && !sealed && (
-                  <motion.form
-                    key="scroll"
-                    onSubmit={handleSubmit}
-                    initial={{ opacity: 0, scaleY: 0, height: 0 }}
-                    animate={{ opacity: 1, scaleY: 1, height: "auto" }}
-                    exit={{ opacity: 0, scaleY: 0, height: 0 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ originY: 0 }}
-                    className="mt-8 w-full max-w-lg overflow-hidden"
-                  >
-                    <div
-                      className="relative rounded-2xl p-[1.5px]"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, #e8b450, #8b6a2a, #f4d98a, #8b6a2a, #e8b450)",
-                      }}
-                    >
-                      <div
-                        className="relative rounded-2xl px-5 py-6 sm:px-8 sm:py-8"
-                        style={{
-                          background:
-                            "linear-gradient(180deg, #f5e6c8 0%, #e8d2a0 100%)",
-                          backgroundImage:
-                            "radial-gradient(circle at 1px 1px, rgba(139,106,42,0.15) 1px, transparent 0), linear-gradient(180deg, #f5e6c8 0%, #e8d2a0 100%)",
-                          backgroundSize: "20px 20px, auto",
-                        }}
-                      >
-                        <p
-                          className="mb-5 text-center font-script text-3xl"
-                          style={{ color: "#5a1e2e" }}
-                        >
-                          Sacred Scroll
-                        </p>
 
-                        <Field label="Guest Name *">
-                          <input
-                            required
-                            maxLength={100}
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className={scrollInput}
-                            placeholder="Sri / Smt. ..."
-                          />
-                        </Field>
-                        <Field label="Relationship to Couple">
-                          <input
-                            maxLength={100}
-                            value={relationship}
-                            onChange={(e) => setRelationship(e.target.value)}
-                            className={scrollInput}
-                            placeholder="Friend, Family, Mentor..."
-                          />
-                        </Field>
-                        <Field label="Your Blessing *">
-                          <textarea
-                            required
-                            maxLength={1000}
-                            rows={4}
-                            value={blessing}
-                            onChange={(e) => setBlessing(e.target.value)}
-                            className={scrollInput}
-                            placeholder="A heartfelt wish for the couple..."
-                          />
-                        </Field>
-
-                        <motion.button
-                          type="submit"
-                          disabled={submitting}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="relative mt-2 w-full overflow-hidden rounded-full px-6 py-3.5 font-display text-xs uppercase tracking-[0.4em] disabled:opacity-70"
-                          style={{
-                            background: "linear-gradient(180deg, #5a1e2e 0%, #3a0f1d 100%)",
-                            color: "#f4d98a",
-                            boxShadow:
-                              "0 8px 24px -8px rgba(90,30,46,0.6), inset 0 0 0 1px rgba(232,180,80,0.5)",
-                          }}
-                        >
-                          {submitting ? "Sealing..." : "✦ Seal Your Blessing ✦"}
-                        </motion.button>
-
-                        <button
-                          type="button"
-                          onClick={() => setScrollOpen(false)}
-                          className="mt-3 w-full text-center font-display text-[0.6rem] uppercase tracking-[0.35em]"
-                          style={{ color: "#8b6a2a" }}
-                        >
-                          Close Scroll
-                        </button>
-                      </div>
-                    </div>
-                  </motion.form>
-                )}
-              </AnimatePresence>
+         
 
               {/* Success */}
               <AnimatePresence>
@@ -369,50 +249,12 @@ export function Blessings() {
                 color: "transparent",
               }}
             >
-              Recent Royal Blessings
+            
             </h3>
             <div className="mt-3 flex justify-center">
               <span className="h-px w-24" style={{ background: "linear-gradient(90deg, transparent, #c9a35a, transparent)" }} />
             </div>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {recent.map((b, i) => (
-                <motion.div
-                  key={b.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.07 }}
-                  className="rounded-xl p-[1px]"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(232,180,80,0.6), rgba(139,106,42,0.2), rgba(232,180,80,0.6))",
-                  }}
-                >
-                  <div
-                    className="h-full rounded-xl p-5 backdrop-blur-sm"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(74,24,40,0.7) 0%, rgba(42,15,29,0.7) 100%)",
-                    }}
-                  >
-                    <p className="font-serif text-sm italic leading-relaxed text-[#f0e3c4]">
-                      &ldquo;{b.blessing}&rdquo;
-                    </p>
-                    <div className="mt-4 flex items-center gap-2">
-                      <span className="text-[#e8b450]">✦</span>
-                      <p className="font-display text-[0.7rem] uppercase tracking-[0.25em] text-[#e8b450]">
-                        {b.name}
-                      </p>
-                    </div>
-                    {b.relationship && (
-                      <p className="mt-1 font-serif text-xs text-[#c9a35a]/80">
-                        {b.relationship}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            
           </div>
         )}
       </div>

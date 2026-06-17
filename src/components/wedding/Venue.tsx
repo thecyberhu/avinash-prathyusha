@@ -28,7 +28,7 @@ export function Venue() {
             <dl className="mt-6 space-y-3 text-sm">
               <Row k="Address" v="Guntur Road, Near TDP Party Office" />
               <Row k="Locality" v="Venkateswara Nagar, Ongole, AP – 523001" />
-              <Row k="Date" v="03 July 2026 · 1:45 AM" />
+              <Row k="Date" v="03 July 2026 · 1:47 AM" />
             </dl>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
@@ -41,7 +41,7 @@ export function Venue() {
                 📍 Get Directions
               </a>
               <a
-                href="tel:+919999999999"
+                href="tel:+917093069398"
                 className="inline-block rounded-full border border-gold/60 bg-ivory px-7 py-3 font-display text-[0.65rem] uppercase tracking-[0.35em] text-wine transition hover:bg-champagne"
               >
                 📞 Contact Family
