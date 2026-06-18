@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import haldi from "@/assets/event-haldi.png";
-import mehendi from "@/assets/event-mehndi.png";
-import sangeet from "@/assets/event-sangeet.png";
+import haldi from "@/assets/event-haldi.webp";
+import mehendi from "@/assets/event-mehndi.webp";
+import sangeet from "@/assets/event-sangeet.webp";
 import wedding from "@/assets/shadi.png";
-import reception from "@/assets/event-reception.png";
+import reception from "@/assets/event-reception.webp";
 import { Divider } from "./Divider";
 
 type IconType = "haldi" | "mehendi" | "sangeet" | "wedding" | "reception";

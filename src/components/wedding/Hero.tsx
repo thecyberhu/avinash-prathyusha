@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import hero from "@/assets/hero.png";
+import hero from "@/assets/hero-section.webp";
 
 export function Hero() {
   // Subtle parallax
@@ -17,6 +17,8 @@ export function Hero() {
       <div className="absolute inset-0" style={{ transform: `translate3d(0, ${y}px, 0)` }}>
         <img
           src={hero}
+          loading="lazy"
+           decoding="async"
           alt="Sri Venkateswara Swamy Temple, Tirumala"
           className="h-[115%] w-full object-cover object-center opacity-85"
         />
