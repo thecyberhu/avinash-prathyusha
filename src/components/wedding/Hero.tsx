@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import hero from "@/assets/hero-opening.png";
+import hero from "@/assets/hero.png";
 
 export function Hero() {
   // Subtle parallax
@@ -118,7 +118,7 @@ export function Hero() {
           <span className="font-display text-[0.55rem] uppercase tracking-[0.5em] text-[#c9a35a] sm:text-[0.7rem]">
             Two Souls · One Journey
           </span>
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="#c9a35a">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="#4e3b17">
             <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" />
           </svg>
           <span className="block h-px w-16 bg-gradient-to-l from-transparent to-[#c9a35a] sm:w-28" />
@@ -131,7 +131,7 @@ export function Hero() {
           className="mt-6 max-w-xl font-serif text-base italic text-ivory/90 sm:text-lg"
           style={{ textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}
         >
-          "Two hearts entwined by destiny, blessed by the divine — a sacred journey begins."
+          ✨Avinash ❤️ Prathyusha — A love written by destiny, celebrated for eternity.✨
         </motion.p>
 
         <motion.p
