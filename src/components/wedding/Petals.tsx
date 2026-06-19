@@ -1,16 +1,21 @@
 import { useMemo } from "react";
 
+function seededValue(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
 export function Petals({ count = 18 }: { count?: number }) {
   const petals = useMemo(
     () =>
       Array.from({ length: count }).map((_, i) => ({
         id: i,
-        left: Math.random() * 100,
-        delay: Math.random() * 20,
-        duration: 18 + Math.random() * 22,
-        size: 10 + Math.random() * 18,
-        hue: Math.random() > 0.5 ? "var(--blush)" : "var(--gold)",
-        rotate: Math.random() * 360,
+        left: seededValue(i + 1) * 100,
+        delay: seededValue(i + 21) * 20,
+        duration: 18 + seededValue(i + 41) * 22,
+        size: 10 + seededValue(i + 61) * 18,
+        hue: seededValue(i + 81) > 0.5 ? "var(--blush)" : "var(--gold)",
+        rotate: seededValue(i + 101) * 360,
       })),
     [count],
   );

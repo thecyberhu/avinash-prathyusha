@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Tangerine:wght@400;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Tangerine:wght@400;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -35,23 +35,22 @@
   --color-blush: var(--blush);
   --color-ivory: var(--ivory);
 
-  --font-serif: "Cormorant Garamond", serif;
-  --font-display: "Cinzel", serif;
-  --font-script: "Great Vibes", cursive;
+  --font-serif: "Playfair Display", serif;
+  --font-display: "Marcellus SC", serif;
+  --font-script: "Pinyon Script", cursive;
   --font-script-alt: "Tangerine", cursive;
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Nunito Sans", sans-serif;
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* Brand palette in oklch */
-  --wine: oklch(0.36 0.13 13);          /* #7A1E3A */
-  --gold: oklch(0.74 0.10 80);          /* #C9A35A */
+  --wine: oklch(0.36 0.13 13);
+  --gold: oklch(0.74 0.10 80);
   --gold-soft: oklch(0.86 0.07 85);
-  --champagne: oklch(0.90 0.02 70);     /* #E7DDD2 */
-  --blush: oklch(0.68 0.08 15);         /* #C97B83 */
-  --ivory: oklch(0.97 0.01 70);         /* #F8F3EE */
+  --champagne: oklch(0.90 0.02 70);
+  --blush: oklch(0.68 0.08 15);
+  --ivory: oklch(0.97 0.01 70);
 
   --background: var(--ivory);
   --foreground: oklch(0.22 0.04 20);
@@ -172,5 +171,3 @@
   }
   .animate-sway { animation: sway 4s ease-in-out infinite; transform-origin: top center; }
 }
-
-

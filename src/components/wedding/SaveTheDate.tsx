@@ -4,11 +4,19 @@ import { motion } from "motion/react";
 const TARGET = new Date("2026-07-03T01:45:00+05:30").getTime();
 
 function useCountdown() {
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState<number | null>(null);
+
   useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 1000);
+    const update = () => setNow(Date.now());
+    update();
+    const id = setInterval(update, 1000);
     return () => clearInterval(id);
   }, []);
+
+  if (now === null) {
+    return null;
+  }
+
   const diff = Math.max(0, TARGET - now);
   return {
     d: Math.floor(diff / 86400000),
@@ -25,12 +33,12 @@ const GOLD_BRIGHT = "#e8b450";
 const CREAM = "#f8ecd6";
 
 export function SaveTheDate() {
-  const { d, h, m, s } = useCountdown();
+  const countdown = useCountdown();
   const cells = [
-    { label: "Days", value: d },
-    { label: "Hours", value: h },
-    { label: "Minutes", value: m },
-    { label: "Seconds", value: s },
+    { label: "Days", value: countdown?.d },
+    { label: "Hours", value: countdown?.h },
+    { label: "Minutes", value: countdown?.m },
+    { label: "Seconds", value: countdown?.s },
   ];
 
   return (
@@ -85,7 +93,7 @@ export function SaveTheDate() {
                     }}
                   >
                     <div className="font-serif text-lg font-semibold sm:text-3xl" style={{ color: WINE }}>
-                      {String(c.value).padStart(2, "0")}
+                      {c.value == null ? "--" : String(c.value).padStart(2, "0")}
                     </div>
                     <div className="font-display text-[0.45rem] uppercase tracking-[0.2em] sm:text-[0.6rem]" style={{ color: "#a8842e" }}>
                       {c.label}

@@ -1,26 +1,33 @@
 import { motion } from "motion/react";
 
 export function Finale() {
+  const particles = Array.from({ length: 40 }).map((_, i) => ({
+    id: i,
+    left: (i * 31 + 17) % 100,
+    delay: ((i * 23) % 150) / 10,
+    duration: 15 + ((i * 29) % 150) / 10,
+  }));
+
   return (
     <footer className="relative overflow-hidden px-6 py-28" style={{
       background: "radial-gradient(ellipse at center, #5a1228 0%, #1a0309 100%)",
     }}>
       {/* Golden light particles */}
       <div className="pointer-events-none absolute inset-0">
-        {Array.from({ length: 40 }).map((_, i) => (
+        {particles.map((particle, i) => (
           <span
-            key={i}
+            key={particle.id}
             className="absolute block animate-petal"
             style={{
-              left: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
               width: 4 + (i % 4),
               height: 4 + (i % 4),
               borderRadius: i % 2 ? "50%" : "40% 60% 60% 40%",
               background: i % 3 === 0 ? "#f5d9a8" : "#e8b450",
               boxShadow: "0 0 10px #c9a35a",
               opacity: 0.7,
-              animationDelay: `${Math.random() * 15}s`,
-              animationDuration: `${15 + Math.random() * 15}s`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`,
             }}
           />
         ))}

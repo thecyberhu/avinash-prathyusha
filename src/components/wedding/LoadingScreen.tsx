@@ -258,18 +258,25 @@ function OrnateBorder() {
 }
 
 function Particles() {
+  const particles = Array.from({ length: 24 }).map((_, i) => ({
+    id: i,
+    left: (i * 37 + 13) % 100,
+    delay: ((i * 17) % 100) / 10,
+    duration: 12 + ((i * 19) % 140) / 10,
+  }));
+
   return (
     <div className="pointer-events-none absolute inset-0">
-      {Array.from({ length: 24 }).map((_, i) => (
+      {particles.map((particle) => (
         <span
-          key={i}
+          key={particle.id}
           className="animate-petal absolute block h-1 w-1 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
             background: "#f5d9a8",
             boxShadow: "0 0 8px #c9a35a",
-            animationDelay: `${Math.random() * 10}s`,
-            animationDuration: `${12 + Math.random() * 14}s`,
+            animationDelay: `${particle.delay}s`,
+            animationDuration: `${particle.duration}s`,
           }}
         />
       ))}
