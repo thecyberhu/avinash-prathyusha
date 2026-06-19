@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Divider } from "./Divider";
-import coupleAsset from "@/assets/both.jpeg";
+import coupleAsset from "@/assets/couple.webp";
 
 export function Couple() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
