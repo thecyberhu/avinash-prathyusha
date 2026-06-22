@@ -136,14 +136,6 @@ export function Hero() {
           ✨Avinash ❤️ Prathyusha — A love written by destiny, celebrated for eternity.✨
         </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.9, duration: 1 }}
-          className="mt-5 font-display text-[0.6rem] uppercase tracking-[0.4em] text-[#e8b450] sm:text-xs"
-        >
-          Marine Engineer &nbsp;❤&nbsp; MBBS (MD)
-        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
