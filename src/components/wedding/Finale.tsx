@@ -84,6 +84,9 @@ export function Finale() {
         <p className="mt-12 font-display text-[0.55rem] uppercase tracking-[0.5em] text-ivory/40">
           © 2026 · Avinash &amp; Sai Prathyusha
         </p>
+         <p className="mt-12 font-display text-[0.55rem] uppercase tracking-[0.5em] text-ivory/40">
+           Created By NIDAMANURI CHANDANA
+        </p>
       </div>
     </footer>
   );
