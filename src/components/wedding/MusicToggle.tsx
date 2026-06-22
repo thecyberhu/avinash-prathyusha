@@ -9,13 +9,10 @@ export function MusicToggle() {
     const a = audioRef.current;
     if (a) {
       a.volume = 0.35;
-      // Try autoplay; if blocked the element is muted and still plays.
-      a.play().then(() => setPlaying(true)).catch(() => {
-        // ensure it can autoplay muted
-        a.muted = true;
-        a.play().catch(() => {});
-        setPlaying(!a.paused);
-      });
+      // Start muted to comply with autoplay policies
+      a.muted = true;
+      a.play().catch(() => {});
+      setPlaying(true);
 
       // Unmute on first user interaction and resume audible playback
       const onUserInteract = () => {
