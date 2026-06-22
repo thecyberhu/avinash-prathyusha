@@ -108,7 +108,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
           src="/music/radhe-sham.mp3"
           loop
           preload="auto"
-          autoPlay
           muted
           playsInline
           aria-hidden
