@@ -105,7 +105,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         {/* Global background audio — persists across all page navigations */}
         <audio
           id="global-audio"
-          src="/music/radhe-sham.mp3"
+          src="/music/WhatsApp Audio 2026-06-17 at 12.12.41 PM.mpeg"
           loop
           preload="auto"
           muted
